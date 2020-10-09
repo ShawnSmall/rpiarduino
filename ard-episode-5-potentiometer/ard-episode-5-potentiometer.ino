@@ -6,18 +6,19 @@ void setup() {
 }
 
 void loop() {
-  int pot;
-  digitalWrite(led, HIGH);
-  pot = analogRead(A5);
-  // The Serial.print command doesn't issue a new line
-  Serial.print(pot);
-  delay(pot);
-  // so we can print a comma
-  Serial.print(",");
-  // then make a new reading
-  pot = analogRead(A5);
-  // And print another value with a newline
-  Serial.println(pot);
-  digitalWrite(led, LOW);
-  delay(pot);
+  int times = 0;
+  // This waits until it receives an integer via the serial connection
+  times = Serial.parseInt();
+  // this loops the number of times entered.
+  for (int i=0;i < times; i++) {  
+    int pot = analogRead(A5);
+    digitalWrite(led, HIGH);
+    Serial.print(pot);
+    delay(pot);
+    Serial.print(",");
+    pot = analogRead(A5);
+    Serial.println(pot);
+    digitalWrite(led, LOW);
+    delay(pot);
+  }
 }
