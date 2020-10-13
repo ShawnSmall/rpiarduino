@@ -1,4 +1,4 @@
-void setup()
+
 
 
 
@@ -15,6 +15,7 @@ void loop()
     float tempC = (tempVolts - 0.5) * 10.0;
     float tempF = tempC * 9.0 / 5.0 + 32.0;
   */
+}
 
 
 
